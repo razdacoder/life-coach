@@ -1,0 +1,12 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@layer components {
+  .btn-white {
+    @apply inline-flex uppercase items-center justify-center px-12 py-4 text-sm font-medium tracking-wide text-black-2 transition-colors duration-200 bg-white hover:bg-white focus:outline-none;
+  }
+  .small-heading {
+    @apply ml-12 relative uppercase text-primary font-medium before:absolute before:w-10 before:h-[1px] before:bg-primary before:flex before:items-center before:justify-center before:top-1/2 before:-left-12;
+  }
+}

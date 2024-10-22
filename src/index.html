@@ -1,0 +1,1144 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Rajdhani:wght@300;400;500;600;700&family=Source+Sans+3:ital,wght@0,200..900;1,200..900&display=swap"
+      rel="stylesheet"
+    />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Source+Sans+3:ital,wght@0,200..900;1,200..900&display=swap"
+      rel="stylesheet"
+    />
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.6.0/css/all.min.css"
+      integrity="sha512-Kc323vGBEqzTmouAECnVceyQqyqdsSiqLQISBL29aUW4U/M7pSPA/gEUZQqv1cwx4OnYxTxve5UMg5GT6L4JJg=="
+      crossorigin="anonymous"
+      referrerpolicy="no-referrer"
+    />
+    <link href="./css/output.css" rel="stylesheet" />
+    <script
+      src="https://cdnjs.cloudflare.com/ajax/libs/alpinejs/3.14.3/cdn.js"
+      integrity="sha512-uwWMcSuWXyHjpkPbn/Hz8O/kDKe/wa70NJvw3Di9zvi28aXKkWFhVxcGvxjIXSv0MX3bQ5PM3Mezepc+pS9d2g=="
+      crossorigin="anonymous"
+      referrerpolicy="no-referrer"
+    ></script>
+
+    <title>Life Coach</title>
+  </head>
+  <body class="font-sans">
+    <header
+      class="bg-[url('./../images/bg.jpg')] h-[60vh] xl:h-[95vh] bg-center bg-no-repeat bg-cover flex flex-col"
+    >
+      <div class="border-b">
+        <div
+          class="container flex items-center justify-between py-5 px-5 mx-auto"
+        >
+          <div class="relative flex flex-row">
+            <a
+              href="#_"
+              class="flex items-center font-medium text-white lg:w-auto lg:items-center lg:justify-center md:mb-0"
+            >
+              <span
+                class="mx-auto text-3xl font-black leading-none text-white select-none"
+                >tails<span class="text-primary text-3xl font-black"
+                  >.</span
+                ></span
+              >
+            </a>
+            <nav
+              class="hidden xl:flex flex-wrap items-center mb-5 text-base md:mb-0 md:pl-8 md:ml-8 md:border-l md:border-gray-200"
+            >
+              <a
+                href="#_"
+                class="mr-5 font-semibold leading-6 text-white hover:text-gray-900 uppercase"
+                >Home</a
+              >
+              <a
+                href="#_"
+                class="mr-5 font-semibold leading-6 text-white hover:text-gray-900 uppercase"
+                >About</a
+              >
+              <a
+                href="#_"
+                class="mr-5 font-semibold leading-6 text-white hover:text-gray-900 uppercase"
+                >Services</a
+              >
+              <a
+                href="#_"
+                class="mr-5 font-semibold leading-6 text-white hover:text-gray-900 uppercase"
+                >Blog</a
+              ><a
+                href="#_"
+                class="mr-5 font-semibold leading-6 text-white hover:text-gray-900 uppercase"
+                >Projects</a
+              ><a
+                href="#_"
+                class="mr-5 font-semibold leading-6 text-white hover:text-gray-900 uppercase"
+                >Contact</a
+              >
+            </nav>
+          </div>
+
+          <div class="hidden xl:inline-flex items-center gap-8">
+            <div class="flex items-center gap-4 text-white">
+              <a href="#"><i class="fa-brands fa-square-facebook"></i></a>
+              <a href="#"><i class="fa-brands fa-square-x-twitter"></i></a>
+              <a href="#"><i class="fa-brands fa-youtube"></i></a>
+              <a href="#"><i class="fa-brands fa-linkedin"></i></a>
+            </div>
+            <button>
+              <i class="fa-solid fa-magnifying-glass text-white"></i>
+            </button>
+
+            <div class="flex items-center gap-4">
+              <i class="fa-solid fa-comments text-3xl text-primary"></i>
+              <div class="flex flex-col gap-0.5 text-white">
+                <h6 class="text-2xl font-bold">Have any Question?</h6>
+                <p class="text-lg font-medium">+0 123 888 999</p>
+              </div>
+            </div>
+          </div>
+
+          <!-- Mobile Nav -->
+          <div
+            x-data="{ 
+         slideOverOpen: false 
+     }"
+            class="xl:hidden relative z-50 w-auto h-auto"
+          >
+            <button @click="slideOverOpen=true" class="inline-block xl:hidden">
+              <i class="fa-solid fa-bars text-2xl text-white"></i>
+            </button>
+            <template x-teleport="body">
+              <div
+                x-show="slideOverOpen"
+                @keydown.window.escape="slideOverOpen=false"
+                class="relative z-[99]"
+              >
+                <div
+                  x-show="slideOverOpen"
+                  x-transition.opacity.duration.600ms
+                  @click="slideOverOpen = false"
+                  class="fixed inset-0 bg-black bg-opacity-10"
+                ></div>
+                <div class="fixed inset-0 overflow-hidden">
+                  <div class="absolute inset-0 overflow-hidden">
+                    <div class="fixed inset-y-0 right-0 flex max-w-full pl-10">
+                      <div
+                        x-show="slideOverOpen"
+                        @click.away="slideOverOpen = false"
+                        x-transition:enter="transform transition ease-in-out duration-500 sm:duration-700"
+                        x-transition:enter-start="translate-x-full"
+                        x-transition:enter-end="translate-x-0"
+                        x-transition:leave="transform transition ease-in-out duration-500 sm:duration-700"
+                        x-transition:leave-start="translate-x-0"
+                        x-transition:leave-end="translate-x-full"
+                        class="w-screen max-w-md"
+                      >
+                        <div
+                          class="flex flex-col h-full py-5 overflow-y-scroll bg-white border-l shadow-lg border-neutral-100/70"
+                        >
+                          <div class="px-4 sm:px-5">
+                            <div class="flex items-start justify-between pb-1">
+                              <button>
+                                <i class="fa-solid fa-magnifying-glass"></i>
+                              </button>
+                              <div class="flex items-center h-auto ml-3">
+                                <button
+                                  @click="slideOverOpen=false"
+                                  class="absolute top-0 right-0 z-30 flex items-center justify-center px-3 py-2 mt-4 mr-5 space-x-1 text-xs font-medium uppercase border rounded-md border-neutral-200 text-neutral-600 hover:bg-neutral-100"
+                                >
+                                  <svg
+                                    xmlns="http://www.w3.org/2000/svg"
+                                    fill="none"
+                                    viewBox="0 0 24 24"
+                                    stroke-width="1.5"
+                                    stroke="currentColor"
+                                    class="w-4 h-4"
+                                  >
+                                    <path
+                                      stroke-linecap="round"
+                                      stroke-linejoin="round"
+                                      d="M6 18L18 6M6 6l12 12"
+                                    ></path>
+                                  </svg>
+                                  <span>Close</span>
+                                </button>
+                              </div>
+                            </div>
+                          </div>
+                          <div class="relative flex-1 px-4 mt-5 sm:px-5">
+                            <div class="absolute inset-0 px-4 sm:px-5">
+                              <nav
+                                class="flex flex-col flex-wrap gap-6 mb-5 text-base"
+                              >
+                                <a
+                                  href="#_"
+                                  class="font-semibold leading-6 text-gray-600 hover:text-gray-900 uppercase"
+                                  >Home</a
+                                >
+                                <a
+                                  href="#_"
+                                  class="font-semibold leading-6 text-gray-600 hover:text-gray-900 uppercase"
+                                  >About</a
+                                >
+                                <a
+                                  href="#_"
+                                  class="font-semibold leading-6 text-gray-600 hover:text-gray-900 uppercase"
+                                  >Services</a
+                                >
+                                <a
+                                  href="#_"
+                                  class="font-semibold leading-6 text-gray-600 hover:text-gray-900 uppercase"
+                                  >Blog</a
+                                ><a
+                                  href="#_"
+                                  class="font-semibold leading-6 text-gray-600 hover:text-gray-900 uppercase"
+                                  >Projects</a
+                                ><a
+                                  href="#_"
+                                  class="font-semibold leading-6 text-gray-600 hover:text-gray-900 uppercase"
+                                  >Contact</a
+                                >
+                              </nav>
+                            </div>
+                          </div>
+                        </div>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </template>
+          </div>
+        </div>
+      </div>
+      <div class="flex-1 px-5 container max-w-5xl mx-auto flex items-center">
+        <div class="w-full lg:w-1/2 relative mx-12">
+          <div class="flex flex-col gap-4 md:gap-8">
+            <h6
+              class="z-50 relative uppercase text-white font-medium before:absolute before:w-10 before:h-[1px] before:bg-white before:flex before:items-center before:justify-center before:top-1/2 before:-left-12"
+            >
+              Easy solution for
+            </h6>
+            <h1
+              class="z-50 inline-block text-4xl md:text-6xl font-semibold text-white -ml-12"
+            >
+              We explore ability and employment solution
+            </h1>
+            <button type="button" class="z-50 -ml-12 btn-white w-full md:w-1/2">
+              Get a Qoute
+            </button>
+          </div>
+          <div
+            class="hidden lg:block absolute size-96 top-1/2 -translate-y-1/2 right-[10%] scale-125 bg-primary rounded-full"
+          ></div>
+        </div>
+      </div>
+    </header>
+    <main>
+      <section class="pb-10">
+        <div class="container mx-auto p-5 max-w-7xl md:-translate-y-1/2">
+          <div class="grid md:grid-cols-3 gap-6">
+            <div class="py-10 px-7 bg-white">
+              <div class="flex items-center justify-between">
+                <h2 class="text-7xl font-bold flex">
+                  185<span class="text-primary text-4xl">+</span>
+                </h2>
+                <svg
+                  xmlns="http://www.w3.org/2000/svg"
+                  viewBox="0 0 24 24"
+                  class="size-10 text-primary/20"
+                >
+                  <g
+                    fill="none"
+                    stroke="currentColor"
+                    stroke-linecap="round"
+                    stroke-linejoin="round"
+                    stroke-width="1.5"
+                    color="currentColor"
+                  >
+                    <circle cx="12" cy="5" r="3" />
+                    <circle cx="12" cy="20" r="2" />
+                    <circle cx="20" cy="20" r="2" />
+                    <circle cx="4" cy="20" r="2" />
+                    <path
+                      d="M20 15c0-1.105-1.12-2-2.5-2h-11c-1.38 0-2.5.895-2.5 2m8-4v4"
+                    />
+                  </g>
+                </svg>
+              </div>
+              <p class="font-medium text-text font-source">
+                Over Clients satisfied with our coach's consulting.
+              </p>
+            </div>
+            <div class="py-10 px-7 bg-white">
+              <div class="flex items-center justify-between">
+                <h2 class="text-7xl font-bold flex">
+                  85<span class="text-primary text-4xl">%</span>
+                </h2>
+                <svg
+                  xmlns="http://www.w3.org/2000/svg"
+                  viewBox="0 0 24 24"
+                  class="size-10 text-primary/20"
+                >
+                  <path
+                    fill="currentColor"
+                    d="M20 17a2 2 0 0 0 2-2V4a2 2 0 0 0-2-2H9.46c.35.61.54 1.3.54 2h10v11h-9v2m4-10v2H9v13H7v-6H5v6H3v-8H1.5V9a2 2 0 0 1 2-2zM8 4a2 2 0 0 1-2 2a2 2 0 0 1-2-2a2 2 0 0 1 2-2a2 2 0 0 1 2 2"
+                  />
+                </svg>
+              </div>
+              <p class="font-medium text-text font-source">
+                Our clients had get success achieving career goals.
+              </p>
+            </div>
+            <div class="py-10 px-7 bg-primary">
+              <div class="flex items-center justify-between">
+                <h2 class="text-7xl font-bold flex text-white">
+                  85<span class="text-black-2">M</span>
+                </h2>
+                <svg
+                  xmlns="http://www.w3.org/2000/svg"
+                  class="size-10 text-white/20"
+                  viewBox="0 0 24 24"
+                >
+                  <g
+                    fill="none"
+                    stroke="currentColor"
+                    stroke-linecap="round"
+                    stroke-linejoin="round"
+                    stroke-width="1.5"
+                    color="currentColor"
+                  >
+                    <path
+                      d="M14 2h-4c-3.28 0-4.919 0-6.081.814a4.5 4.5 0 0 0-1.105 1.105C2 5.08 2 6.72 2 10s0 4.919.814 6.081a4.5 4.5 0 0 0 1.105 1.105C5.08 18 6.72 18 10 18h4c3.28 0 4.919 0 6.081-.814a4.5 4.5 0 0 0 1.105-1.105C22 14.92 22 13.28 22 10s0-4.919-.814-6.081a4.5 4.5 0 0 0-1.105-1.105C18.92 2 17.28 2 14 2m.5 20l-.316-.419c-.71-.944-.887-2.387-.437-3.581M9.5 22l.316-.419c.71-.944.887-2.387.437-3.581M7 22h10"
+                    />
+                    <path
+                      d="M8 14c1.838-2.595 6.119-2.737 8 0m-2-6a2 2 0 1 1-4 0a2 2 0 0 1 4 0"
+                    />
+                  </g>
+                </svg>
+              </div>
+              <p class="font-medium text-white font-source">
+                Globally certifide coach making the ideal career.
+              </p>
+            </div>
+          </div>
+        </div>
+      </section>
+      <section class="pb-20">
+        <div class="container mx-auto p-5 max-w-7xl">
+          <div class="flex flex-col lg:flex-row gap-8 items-center">
+            <div class="w-full lg:w-1/2">
+              <img
+                src="images/who-we-are.jpg"
+                alt="Who we are"
+                class="w-full"
+              />
+            </div>
+            <div class="w-full lg:w-1/2 flex flex-col gap-6">
+              <h6 class="small-heading">Who we are</h6>
+              <h2 class="text-4xl font-semibold text-black-2">
+                Does more then ever platform to achieve goal stages.
+              </h2>
+              <p
+                class="ml-8 text-sm font-medium relative before:absolute before:h-full before:w-[3px] before:bg-primary before:top-0 before:-left-8"
+              >
+                Combines industry knowledge, decades. Duis aute irure dolor in
+                reprehender.it in voluptate velit esse cillum dolore eu fugiat
+                nulla pariatur. cepteur sint experience. ingenuity and
+                adaptability to deliver.
+              </p>
+              <div class="grid md:grid-cols-2 gap-6 md:gap-12">
+                <div
+                  class="flex items-center text-xl md:text-2xl font-semibold gap-1"
+                >
+                  <span class="text-primary">01.</span>
+                  <span class="text-black-2">Taxation Planning</span>
+                </div>
+                <div
+                  class="flex items-center text-xl md:text-2xl font-semibold gap-1"
+                >
+                  <span class="text-primary">02.</span>
+                  <span class="text-black-2"> Energy & Environment</span>
+                </div>
+                <div
+                  class="flex items-center text-xl md:text-2xl font-semibold gap-1"
+                >
+                  <span class="text-primary">03.</span>
+                  <span class="text-black-2">Investment Trading</span>
+                </div>
+                <div
+                  class="flex items-center text-xl md:text-2xl font-semibold gap-1"
+                >
+                  <span class="text-primary">04.</span>
+                  <span class="text-black-2">Financial Analysis</span>
+                </div>
+              </div>
+              <div class="flex flex-col md:flex-row items-center gap-8">
+                <div class="space-y-8 text-text font-medium font-source">
+                  <p>
+                    Quis ipsum dolor sit amet, consectetur adipiscing elit sed
+                    do eiusmod tempor ultrices gravida.
+                  </p>
+                  <p>
+                    Risus commodo viverra maecenas accumsan lacus vel facilisis
+                    suspendisse.
+                  </p>
+                </div>
+                <div class="w-full md:w-1/6 relative">
+                  <img
+                    src="images/vid-img.jpg"
+                    alt="Vid Image"
+                    class="w-full"
+                  />
+                  <div
+                    class="absolute top-1/2 left-1/2 z-50 -translate-x-1/2 -translate-y-1/3 bg-white p-4 rounded-full size-12 flex items-center justify-center"
+                  >
+                    <i class="fa-solid fa-play text-primary"></i>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </section>
+      <section class="pb-20">
+        <div class="container mx-auto p-5 max-w-7xl flex flex-col gap-24">
+          <div class="flex items-center flex-col gap-2">
+            <h6 class="small-heading">Our Services</h6>
+            <h2 class="text-4xl font-semibold text-black-2">
+              Career you&apos;re Passionate
+            </h2>
+          </div>
+          <div class="grid md:grid-cols-3 gap-6 lg:gap-12">
+            <div
+              class="flex flex-col p-4 lg:p-8 border gap-4 md:gap-0 md:pb-0 hover:border-primary transition duration-300 group"
+            >
+              <div class="md:-translate-y-1/3 overflow-hidden">
+                <img
+                  src="images/service1.jpg"
+                  alt="Service 1"
+                  class="group-hover:scale-110 transition duration-300"
+                />
+              </div>
+              <div class="flex flex-col gap-1.5 md:-translate-y-1/4">
+                <a href="#">
+                  <h6 class="small-heading">Leadership</h6>
+                  <h3
+                    class="text-2xl font-semibold text-black-2 hover:text-primary transition duration-300"
+                  >
+                    Business Planning
+                  </h3>
+                </a>
+                <p class="font-medium text-text font-source">
+                  Life coaching has grown to be a successful form of talking
+                  therapy, to helped turn people&apos;s lives around
+                </p>
+              </div>
+            </div>
+            <div
+              class="flex flex-col p-4 lg:p-8 border gap-4 md:gap-0 md:pb-0 hover:border-primary transition duration-300 group"
+            >
+              <div class="md:-translate-y-1/3 overflow-hidden">
+                <img
+                  src="images/service2.jpg"
+                  alt="Service 2"
+                  class="group-hover:scale-110 transition duration-300"
+                />
+              </div>
+              <div class="flex flex-col gap-1.5 md:-translate-y-1/4">
+                <a href="#">
+                  <h6 class="small-heading">Consultancy</h6>
+                  <h3
+                    class="text-2xl font-semibold text-black-2 hover:text-primary transition duration-300"
+                  >
+                    Careers Coaching
+                  </h3>
+                </a>
+                <p class="font-medium text-text font-source">
+                  Life coaching has grown to be a successful form of talking
+                  therapy, to helped turn people's lives around
+                </p>
+              </div>
+            </div>
+            <div
+              class="flex flex-col p-4 lg:p-8 border gap-4 md:gap-0 md:pb-0 hover:border-primary transition duration-300 group"
+            >
+              <div class="md:-translate-y-1/3 overflow-hidden">
+                <img
+                  src="images/service3.jpg"
+                  alt="Service 3"
+                  class="group-hover:scale-110 transition duration-300"
+                />
+              </div>
+              <div class="flex flex-col gap-1.5 md:-translate-y-1/4">
+                <a href="#">
+                  <h6 class="small-heading">Corporative</h6>
+                  <h3
+                    class="text-2xl font-semibold text-black-2 hover:text-primary transition duration-300"
+                  >
+                    Problems Solving
+                  </h3>
+                </a>
+                <p class="font-medium text-text font-source">
+                  Life coaching has grown to be a successful form of talking
+                  therapy, to helped turn people's lives around
+                </p>
+              </div>
+            </div>
+          </div>
+        </div>
+      </section>
+      <section class="flex flex-col md:flex-row pb-20 relative">
+        <div class="bg-slate-900 w-full md:w-9/12 py-24 px-5">
+          <div class="mx-auto max-w-3xl text-white flex flex-col gap-6">
+            <div class="flex flex-col gap-2 w-full lg:w-2/3">
+              <h6 class="small-heading">What we have</h6>
+              <h3 class="text-4xl font-semibold text-white">
+                Lyfpro coaching special service and success number
+              </h3>
+            </div>
+            <ul
+              class="list-disc grid md:grid-cols-2 gap-4 list-inside marker:text-primary marker:size-3.5 marker:rounded-none text-base font-medium font-source w-full lg:w-2/3"
+            >
+              <li>consectetur adipisicing elit, sed</li>
+              <li>consectetur adipisicing elit, sed</li>
+              <li>consectetur adipisicing elit, sed</li>
+              <li>consectetur adipisicing elit, sed</li>
+              <li>consectetur adipisicing elit, sed</li>
+              <li>consectetur adipisicing elit, sed</li>
+            </ul>
+            <div class="w-full lg:w-2/3 flex flex-col gap-4">
+              <div class="flex flex-col gap-2">
+                <h5 class="text-xl font-semibold">Brilliant Client Service</h5>
+                <div class="w-full bg-text rounded-full h-5">
+                  <div
+                    class="bg-primary h-5 font-semibold rounded-full flex justify-center items-center"
+                    style="width: 85%"
+                  >
+                    85%
+                  </div>
+                </div>
+              </div>
+              <div class="flex flex-col gap-2">
+                <h5 class="text-xl font-semibold">Success for all clients</h5>
+                <div class="w-full bg-text rounded-full h-5">
+                  <div
+                    class="bg-primary h-5 font-semibold rounded-full flex justify-center items-center"
+                    style="width: 85%"
+                  >
+                    85%
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+        <div class="bg-primary py-24 w-full md:w-3/12">
+          <img
+            src="images/vid-img.jpg"
+            alt="Video Image"
+            class="lg:-translate-x-1/2"
+          />
+        </div>
+      </section>
+      <section class="pb-20">
+        <div class="container mx-auto p-5 max-w-7xl flex flex-col gap-24">
+          <div class="flex items-center flex-col gap-2">
+            <h6 class="small-heading">Our Work</h6>
+            <h2 class="text-4xl font-semibold text-black-2 text-center">
+              Our commitment to your Success
+            </h2>
+            <p class="font-medium text-text text-center w-full md:w-2/3">
+              Combines industry knowledge, decades. Duis aute irure dolor in
+              reprehender.it in voluptate velit esse cillum dolore eu fugiat
+              nulla pariatur. Excepteur sint experience.
+            </p>
+          </div>
+        </div>
+        <div class="grid md:grid-cols-5 gap-4">
+          <div class="relative">
+            <div
+              class="hidden lg:block absolute bottom-0 mb-2 left-4 bg-white p-3"
+            >
+              <h6 class="small-heading">Analysis Motivation</h6>
+              <a
+                href="#"
+                class="text-xl font-semibold text-black-2 hover:text-primary transition duration-300"
+                >Inspirational Videos</a
+              >
+            </div>
+            <img src="images/work1.jpg" alt="Work1" class="object-cover" />
+          </div>
+          <div class="relative">
+            <div
+              class="hidden lg:block absolute bottom-0 mb-2 left-4 bg-white p-3"
+            >
+              <h6 class="small-heading">Analysis Motivation</h6>
+              <a
+                href="#"
+                class="text-xl font-semibold text-black-2 hover:text-primary transition duration-300"
+                >Inspirational Videos</a
+              >
+            </div>
+            <img src="images/work2.jpg" alt="Work1" class="object-cover" />
+          </div>
+          <div class="relative">
+            <div
+              class="hidden lg:block absolute bottom-0 mb-2 left-4 bg-white p-3"
+            >
+              <h6 class="small-heading">Analysis Motivation</h6>
+              <a
+                href="#"
+                class="text-xl font-semibold text-black-2 hover:text-primary transition duration-300"
+                >Inspirational Videos</a
+              >
+            </div>
+            <img src="images/work3.jpg" alt="Work1" class="object-cover" />
+          </div>
+          <div class="relative">
+            <div
+              class="hidden lg:block absolute bottom-0 mb-2 left-4 bg-white p-3"
+            >
+              <h6 class="small-heading">Analysis Motivation</h6>
+              <a
+                href="#"
+                class="text-xl font-semibold text-black-2 hover:text-primary transition duration-300"
+                >Inspirational Videos</a
+              >
+            </div>
+            <img src="images/work4.jpg" alt="Work1" class="object-cover" />
+          </div>
+          <div class="relative">
+            <div
+              class="hidden lg:block absolute bottom-0 mb-2 left-4 bg-white p-3"
+            >
+              <h6 class="small-heading">Analysis Motivation</h6>
+              <a
+                href="#"
+                class="text-xl font-semibold text-black-2 hover:text-primary transition duration-300"
+                >Inspirational Videos</a
+              >
+            </div>
+            <img src="images/work5.jpg" alt="Work1" class="object-cover" />
+          </div>
+        </div>
+      </section>
+      <section
+        class="flex items-center justify-center py-20 bg-gray-100 min-w-screen"
+      >
+        <div class="max-w-6xl px-12 mx-auto bg-gray-100 md:px-16 xl:px-10">
+          <div class="flex flex-col items-center lg:flex-row">
+            <div
+              class="flex flex-col items-start justify-center w-full h-full pr-8 mb-10 lg:mb-0 lg:w-1/2"
+            >
+              <h6 class="small-heading">Our customers love our product</h6>
+              <h2
+                class="text-4xl font-extrabold leading-10 tracking-tight text-black-2 sm:text-5xl sm:leading-none md:text-6xl lg:text-5xl xl:text-6xl"
+              >
+                Testimonials
+              </h2>
+              <p class="my-6 text-lg text-text">
+                Don't just take our word for it, read from our extensive list of
+                case studies and customer testimonials.
+              </p>
+              <a
+                href="#_"
+                class="flex items-center justify-center px-8 py-3 text-base font-medium leading-6 text-white transition duration-150 ease-in-out bg-primary border border-transparent shadow hover:bg-primary/80 focus:outline-none md:py-4 md:text-lg md:px-10"
+                data-primary="indigo-600"
+                data-rounded="rounded-md"
+                >View Case Studies</a
+              >
+            </div>
+            <div class="w-full lg:w-1/2">
+              <blockquote
+                class="flex items-center justify-between w-full col-span-1 p-6 bg-white rounded-lg shadow"
+                data-rounded="rounded-lg"
+                data-rounded-max="rounded-full"
+              >
+                <div class="flex flex-col pr-8">
+                  <div class="relative pl-12">
+                    <svg
+                      class="absolute left-0 w-10 h-10 text-primary fill-current"
+                      data-primary="indigo-500"
+                      xmlns="http://www.w3.org/2000/svg"
+                      viewBox="0 0 100 125"
+                    >
+                      <path
+                        d="M30.7 42c0 6.1 12.6 7 12.6 22 0 11-7.9 19.2-18.9 19.2C12.7 83.1 5 72.6 5 61.5c0-19.2 18-44.6 29.2-44.6 2.8 0 7.9 2 7.9 5.4S30.7 31.6 30.7 42zM82.4 42c0 6.1 12.6 7 12.6 22 0 11-7.9 19.2-18.9 19.2-11.8 0-19.5-10.5-19.5-21.6 0-19.2 18-44.6 29.2-44.6 2.8 0 7.9 2 7.9 5.4S82.4 31.6 82.4 42z"
+                      />
+                    </svg>
+                    <p
+                      class="mt-2 text-sm text-text sm:text-base lg:text-sm xl:text-base"
+                    >
+                      Awesome product! And the customer service is exceptionally
+                      well.
+                    </p>
+                  </div>
+
+                  <h3
+                    class="pl-12 mt-3 text-sm font-medium leading-5 text-black-2 truncate sm:text-base lg:text-base"
+                  >
+                    Jane Cooper
+                    <span class="mt-1 text-sm leading-5 text-text truncate"
+                      >- CEO SomeCompany</span
+                    >
+                  </h3>
+                </div>
+                <img
+                  class="flex-shrink-0 size-16 md:size-20 bg-gray-300 rounded-full xl:w-24 xl:h-24"
+                  src="https://images.unsplash.com/photo-1494790108377-be9c29b29330?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=facearea&facepad=4&w=256&h=256&q=60"
+                  alt=""
+                />
+              </blockquote>
+              <blockquote
+                class="flex items-center justify-between w-full col-span-1 p-6 mt-4 bg-white rounded-lg shadow"
+                data-rounded="rounded-lg"
+                data-rounded-max="rounded-full"
+              >
+                <div class="flex flex-col pr-10">
+                  <div class="relative pl-12">
+                    <svg
+                      class="absolute left-0 w-10 h-10 text-primary fill-current"
+                      data-primary="indigo-500"
+                      xmlns="http://www.w3.org/2000/svg"
+                      viewBox="0 0 100 125"
+                    >
+                      <path
+                        d="M30.7 42c0 6.1 12.6 7 12.6 22 0 11-7.9 19.2-18.9 19.2C12.7 83.1 5 72.6 5 61.5c0-19.2 18-44.6 29.2-44.6 2.8 0 7.9 2 7.9 5.4S30.7 31.6 30.7 42zM82.4 42c0 6.1 12.6 7 12.6 22 0 11-7.9 19.2-18.9 19.2-11.8 0-19.5-10.5-19.5-21.6 0-19.2 18-44.6 29.2-44.6 2.8 0 7.9 2 7.9 5.4S82.4 31.6 82.4 42z"
+                      />
+                    </svg>
+                    <p
+                      class="mt-2 text-sm text-text sm:text-base lg:text-sm xl:text-base"
+                    >
+                      I can't express enough, how amazing this service has been
+                      for my company.
+                    </p>
+                  </div>
+                  <h3
+                    class="pl-12 mt-3 text-sm font-medium leading-5 text-black-2 truncate sm:text-base lg:text-base"
+                  >
+                    John Doe
+                    <span class="mt-1 text-sm leading-5 text-text truncate"
+                      >- CEO SomeCompany</span
+                    >
+                  </h3>
+                  <p class="mt-1 text-sm leading-5 text-text truncate"></p>
+                </div>
+                <img
+                  class="flex-shrink-0 size-16 md:size-20 bg-gray-300 rounded-full"
+                  src="https://images.unsplash.com/photo-1527980965255-d3b416303d12?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&aauto=format&fit=facearea&facepad=4&w=256&h=256&q=60"
+                  alt=""
+                />
+              </blockquote>
+              <blockquote
+                class="flex items-center justify-between w-full col-span-1 p-6 mt-4 bg-white rounded-lg shadow"
+                data-rounded="rounded-lg"
+                data-rounded-max="rounded-full"
+              >
+                <div class="flex flex-col pr-10">
+                  <div class="relative pl-12">
+                    <svg
+                      class="absolute left-0 w-10 h-10 text-primary fill-current"
+                      data-primary="indigo-500"
+                      xmlns="http://www.w3.org/2000/svg"
+                      viewBox="0 0 100 125"
+                    >
+                      <path
+                        d="M30.7 42c0 6.1 12.6 7 12.6 22 0 11-7.9 19.2-18.9 19.2C12.7 83.1 5 72.6 5 61.5c0-19.2 18-44.6 29.2-44.6 2.8 0 7.9 2 7.9 5.4S30.7 31.6 30.7 42zM82.4 42c0 6.1 12.6 7 12.6 22 0 11-7.9 19.2-18.9 19.2-11.8 0-19.5-10.5-19.5-21.6 0-19.2 18-44.6 29.2-44.6 2.8 0 7.9 2 7.9 5.4S82.4 31.6 82.4 42z"
+                      />
+                    </svg>
+                    <p
+                      class="mt-2 text-sm text-text sm:text-base lg:text-sm xl:text-base"
+                    >
+                      I can't express enough, how amazing this service has been
+                      for my company.
+                    </p>
+                  </div>
+
+                  <h3
+                    class="pl-12 mt-3 text-sm font-medium leading-5 text-black-2 truncate sm:text-base lg:text-base"
+                  >
+                    John Smith
+                    <span class="mt-1 text-sm leading-5 text-text truncate"
+                      >- CEO SomeCompany</span
+                    >
+                  </h3>
+                  <p class="mt-1 text-sm leading-5 text-text truncate"></p>
+                </div>
+                <img
+                  class="flex-shrink-0 size-16 md:size-20 bg-gray-300 rounded-full"
+                  src="https://images.unsplash.com/photo-1545167622-3a6ac756afa4?ixlib=rrb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&aauto=format&fit=facearea&facepad=4&w=256&h=256&q=60"
+                  alt=""
+                />
+              </blockquote>
+            </div>
+          </div>
+        </div>
+      </section>
+      <section class="w-full py-8 mb-20 bg-primary">
+        <div class="container mx-auto p-5">
+          <div class="flex flex-col items-center lg:flex-row">
+            <div class="w-full space-y-5 lg:w-3/5 md:pr-16">
+              <h6 class="small-heading text-white before:bg-white">
+                keep up to date with advantage
+              </h6>
+              <h2
+                class="text-2xl font-extrabold leading-none text-white sm:text-3xl md:text-5xl"
+              >
+                Subscribe to Our Newsletter
+              </h2>
+            </div>
+
+            <div class="w-full lg:w-2/5">
+              <div
+                class="relative z-10 h-auto p-8 py-10 overflow-hidden border-gray-300 rounded-lg flex items-center px-7"
+              >
+                <input
+                  type="text"
+                  name="email"
+                  id="email"
+                  class="block w-3/4 px-4 py-3 border border-transparent border-gray-200 focus:ring focus:outline-none"
+                  placeholder="Email address"
+                />
+
+                <button
+                  class="w-1/4 px-3 py-3 font-medium text-white bg-black-2"
+                >
+                  SUBMIT
+                </button>
+              </div>
+            </div>
+          </div>
+        </div>
+      </section>
+      <section class="pb-20">
+        <div class="container px-5 mx-auto max-w-7xl flex flex-col gap-8">
+          <div class="flex items-center flex-col gap-2">
+            <h6 class="small-heading">News Update</h6>
+            <h2 class="text-4xl font-semibold text-black-2">
+              Latest Blog & Article
+            </h2>
+            <p class="text-text font-medium w-2/3 text-center">
+              Combines industry knowledge, decades. Duis aute irure dolor in
+              reprehender.it in voluptate velit esse cillum dolore eu fugiat
+              nulla pariatur. Excepteur sint experience.
+            </p>
+          </div>
+          <div class="grid md:grid-cols-2 lg:grid-cols-3 gap-8">
+            <div class="p-8 border flex flex-col gap-4">
+              <div class="relative">
+                <img src="images/blog1.jpg" alt="Blog 1" />
+                <div
+                  class="absolute bg-primary py-2 text-white px-6 -bottom-10 right-4 flex flex-col gap-0.5 text-center"
+                >
+                  <span class="text-4xl font-bold">18</span>
+                  <span class="text-2xl font-semibold">JUN</span>
+                </div>
+              </div>
+              <div class="flex items-center gap-4 text-sm">
+                <a
+                  href="#"
+                  class="flex items-center gap-2 hover:text-primary transition duration-300"
+                >
+                  <i class="fa-solid fa-user text-primary"></i>
+                  <span>BY ADMIN</span>
+                </a>
+                <a
+                  href="#"
+                  class="flex items-center gap-2 hover:text-primary transition duration-300"
+                >
+                  <i class="fa-solid fa-folder-open text-primary"></i>
+                  <span>BUSSINES</span>
+                </a>
+              </div>
+              <a href="#" class="group">
+                <h3
+                  class="group-hover:text-primary transition duration-300 text-2xl font-semibold text-black-2"
+                >
+                  People who made inspiring your life change
+                </h3>
+                <h6 class="small-heading">Read more</h6>
+              </a>
+            </div>
+            <div class="p-8 border flex flex-col gap-4">
+              <div class="relative">
+                <img src="images/blog2.jpg" alt="Blog 1" />
+                <div
+                  class="absolute bg-primary py-2 text-white px-6 -bottom-10 right-4 flex flex-col gap-0.5 text-center"
+                >
+                  <span class="text-4xl font-bold">18</span>
+                  <span class="text-2xl font-semibold">JUN</span>
+                </div>
+              </div>
+              <div class="flex items-center gap-4 text-sm">
+                <a
+                  href="#"
+                  class="flex items-center gap-2 hover:text-primary transition duration-300"
+                >
+                  <i class="fa-solid fa-user text-primary"></i>
+                  <span>BY ADMIN</span>
+                </a>
+                <a
+                  href="#"
+                  class="flex items-center gap-2 hover:text-primary transition duration-300"
+                >
+                  <i class="fa-solid fa-folder-open text-primary"></i>
+                  <span>BUSSINES</span>
+                </a>
+              </div>
+              <a href="#" class="group">
+                <h3
+                  class="group-hover:text-primary transition duration-300 text-2xl font-semibold text-black-2"
+                >
+                  People who made inspiring your life change
+                </h3>
+                <h6 class="small-heading">Read more</h6>
+              </a>
+            </div>
+            <div class="p-8 border flex flex-col gap-4">
+              <div class="relative">
+                <img src="images/blog3.jpg" alt="Blog 1" />
+                <div
+                  class="absolute bg-primary py-2 text-white px-6 -bottom-10 right-4 flex flex-col gap-0.5 text-center"
+                >
+                  <span class="text-4xl font-bold">18</span>
+                  <span class="text-2xl font-semibold">JUN</span>
+                </div>
+              </div>
+              <div class="flex items-center gap-4 text-sm">
+                <a
+                  href="#"
+                  class="flex items-center gap-2 hover:text-primary transition duration-300"
+                >
+                  <i class="fa-solid fa-user text-primary"></i>
+                  <span>BY ADMIN</span>
+                </a>
+                <a
+                  href="#"
+                  class="flex items-center gap-2 hover:text-primary transition duration-300"
+                >
+                  <i class="fa-solid fa-folder-open text-primary"></i>
+                  <span>BUSSINES</span>
+                </a>
+              </div>
+              <a href="#" class="group">
+                <h3
+                  class="group-hover:text-primary transition duration-300 text-2xl font-semibold text-black-2"
+                >
+                  People who made inspiring your life change
+                </h3>
+                <h6 class="small-heading">Read more</h6>
+              </a>
+            </div>
+          </div>
+        </div>
+      </section>
+    </main>
+    <footer class="bg-slate-900 py-20">
+      <div class="container px-5 max-w-7xl mx-auto flex flex-col gap-12">
+        <div class="grid grid-cols-1 lg:grid-cols-3 gap-12">
+          <div class="flex items-center gap-4">
+            <div class="bg-primary size-28 flex items-center justify-center">
+              <i class="fa-solid fa-location-dot text-white text-3xl"></i>
+            </div>
+            <div class="flex flex-col gap-1">
+              <h6 class="text-white text-xl font-semibold">Office Address</h6>
+              <h4 class="text-2xl font-semibold text-primary">
+                201 Stokes New York
+              </h4>
+            </div>
+          </div>
+          <div class="flex items-center gap-4">
+            <div class="bg-primary size-28 flex items-center justify-center">
+              <i class="fa-solid fa-envelope text-white text-3xl"></i>
+            </div>
+            <div class="flex flex-col gap-1">
+              <h6 class="text-white text-xl font-semibold">
+                24 X 7 online support
+              </h6>
+              <h4 class="text-2xl font-semibold text-primary">
+                info@Lyfpro.com
+              </h4>
+            </div>
+          </div>
+          <div class="flex items-center gap-4">
+            <div class="bg-primary size-28 flex items-center justify-center">
+              <i class="fa-solid fa-phone-volume text-white text-3xl"></i>
+            </div>
+            <div class="flex flex-col gap-1">
+              <h6 class="text-white text-xl font-semibold">Contact Us Free</h6>
+              <h4 class="text-2xl font-semibold text-primary">
+                +1 (088) 456 888
+              </h4>
+            </div>
+          </div>
+        </div>
+        <div class="grid grid-cols-1 gap-8 sm:gap-6 slg:grid-cols-3">
+          <div>
+            <h2
+              class="mb-6 text-xl font-semibold text-gray-900 uppercase dark:text-white"
+            >
+              Our Departments
+            </h2>
+            <ul class="text-gray-500 dark:text-gray-400 font-medium">
+              <li class="mb-4">
+                <a href="https://flowbite.com/" class="hover:underline"
+                  >About Us</a
+                >
+              </li>
+              <li class="mb-4">
+                <a href="https://tailwindcss.com/" class="hover:underline"
+                  >Services</a
+                >
+              </li>
+              <li class="mb-4">
+                <a href="https://tailwindcss.com/" class="hover:underline"
+                  >Projects</a
+                >
+              </li>
+              <li class="mb-4">
+                <a href="https://tailwindcss.com/" class="hover:underline"
+                  >Blog</a
+                >
+              </li>
+              <li class="mb-4">
+                <a href="https://tailwindcss.com/" class="hover:underline"
+                  >Contact Us</a
+                >
+              </li>
+            </ul>
+          </div>
+          <div>
+            <h2
+              class="mb-6 text-xl font-semibold text-gray-900 uppercase dark:text-white"
+            >
+              Sign Up To Get Latest Updates
+            </h2>
+            <ul class="text-gray-500 dark:text-gray-400 font-medium">
+              <li class="mb-4">
+                <a
+                  href="https://github.com/themesberg/flowbite"
+                  class="hover:underline"
+                  >Github</a
+                >
+              </li>
+              <li>
+                <a href="https://discord.gg/4eeurUVvTy" class="hover:underline"
+                  >Discord</a
+                >
+              </li>
+            </ul>
+          </div>
+          <div>
+            <h2
+              class="mb-6 text-xl font-semibold text-gray-900 uppercase dark:text-white"
+            >
+              Opening Hours
+            </h2>
+            <div class="flex flex-col gap-4">
+              <div class="flex items-center gap-12 justify-between font-medium">
+                <span class="text-white">Mon - Tues</span>
+                <span class="text-gray-500">08:00 AM - 05:00PM</span>
+              </div>
+              <div class="flex items-center gap-12 justify-between font-medium">
+                <span class="text-white">Wedne - Thur</span>
+                <span class="text-gray-500">08:00 AM - 05:00PM</span>
+              </div>
+              <div class="flex items-center gap-12 justify-between font-medium">
+                <span class="text-white">Fri - Sat</span>
+                <span class="text-gray-500">08:00 AM - 05:00PM</span>
+              </div>
+              <div class="flex items-center gap-12 justify-between font-medium">
+                <span class="text-white">Sunday</span>
+                <span class="text-gray-500">08:00 AM - 05:00PM</span>
+              </div>
+              <div class="flex items-center gap-12 justify-between font-medium">
+                <span class="text-white">Personal</span>
+                <span class="text-gray-500">08:00 AM - 05:00PM</span>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+      <div
+        class="container flex flex-col items-center px-8 py-8 mx-auto max-w-7xl sm:flex-row"
+      >
+        <p class="mt-4 text-sm text-gray-500 sm:ml-4 sm:pl-4 sm:mt-0">
+          &copy; 2021 Tails - Life Coach
+        </p>
+        <span
+          class="inline-flex justify-center mt-4 space-x-5 sm:ml-auto sm:mt-0 sm:justify-start"
+        >
+          <a href="#" class="text-gray-400 hover:text-gray-500">
+            <span class="sr-only">Facebook</span>
+            <svg
+              class="w-6 h-6"
+              fill="currentColor"
+              viewBox="0 0 24 24"
+              aria-hidden="true"
+            >
+              <path
+                fill-rule="evenodd"
+                d="M22 12c0-5.523-4.477-10-10-10S2 6.477 2 12c0 4.991 3.657 9.128 8.438 9.878v-6.987h-2.54V12h2.54V9.797c0-2.506 1.492-3.89 3.777-3.89 1.094 0 2.238.195 2.238.195v2.46h-1.26c-1.243 0-1.63.771-1.63 1.562V12h2.773l-.443 2.89h-2.33v6.988C18.343 21.128 22 16.991 22 12z"
+                clip-rule="evenodd"
+              />
+            </svg>
+          </a>
+
+          <a href="#" class="text-gray-400 hover:text-gray-500">
+            <span class="sr-only">Instagram</span>
+            <svg
+              class="w-6 h-6"
+              fill="currentColor"
+              viewBox="0 0 24 24"
+              aria-hidden="true"
+            >
+              <path
+                fill-rule="evenodd"
+                d="M12.315 2c2.43 0 2.784.013 3.808.06 1.064.049 1.791.218 2.427.465a4.902 4.902 0 011.772 1.153 4.902 4.902 0 011.153 1.772c.247.636.416 1.363.465 2.427.048 1.067.06 1.407.06 4.123v.08c0 2.643-.012 2.987-.06 4.043-.049 1.064-.218 1.791-.465 2.427a4.902 4.902 0 01-1.153 1.772 4.902 4.902 0 01-1.772 1.153c-.636.247-1.363.416-2.427.465-1.067.048-1.407.06-4.123.06h-.08c-2.643 0-2.987-.012-4.043-.06-1.064-.049-1.791-.218-2.427-.465a4.902 4.902 0 01-1.772-1.153 4.902 4.902 0 01-1.153-1.772c-.247-.636-.416-1.363-.465-2.427-.047-1.024-.06-1.379-.06-3.808v-.63c0-2.43.013-2.784.06-3.808.049-1.064.218-1.791.465-2.427a4.902 4.902 0 011.153-1.772A4.902 4.902 0 015.45 2.525c.636-.247 1.363-.416 2.427-.465C8.901 2.013 9.256 2 11.685 2h.63zm-.081 1.802h-.468c-2.456 0-2.784.011-3.807.058-.975.045-1.504.207-1.857.344-.467.182-.8.398-1.15.748-.35.35-.566.683-.748 1.15-.137.353-.3.882-.344 1.857-.047 1.023-.058 1.351-.058 3.807v.468c0 2.456.011 2.784.058 3.807.045.975.207 1.504.344 1.857.182.466.399.8.748 1.15.35.35.683.566 1.15.748.353.137.882.3 1.857.344 1.054.048 1.37.058 4.041.058h.08c2.597 0 2.917-.01 3.96-.058.976-.045 1.505-.207 1.858-.344.466-.182.8-.398 1.15-.748.35-.35.566-.683.748-1.15.137-.353.3-.882.344-1.857.048-1.055.058-1.37.058-4.041v-.08c0-2.597-.01-2.917-.058-3.96-.045-.976-.207-1.505-.344-1.858a3.097 3.097 0 00-.748-1.15 3.098 3.098 0 00-1.15-.748c-.353-.137-.882-.3-1.857-.344-1.023-.047-1.351-.058-3.807-.058zM12 6.865a5.135 5.135 0 110 10.27 5.135 5.135 0 010-10.27zm0 1.802a3.333 3.333 0 100 6.666 3.333 3.333 0 000-6.666zm5.338-3.205a1.2 1.2 0 110 2.4 1.2 1.2 0 010-2.4z"
+                clip-rule="evenodd"
+              />
+            </svg>
+          </a>
+
+          <a href="#" class="text-gray-400 hover:text-gray-500">
+            <span class="sr-only">Twitter</span>
+            <svg
+              class="w-6 h-6"
+              fill="currentColor"
+              viewBox="0 0 24 24"
+              aria-hidden="true"
+            >
+              <path
+                d="M8.29 20.251c7.547 0 11.675-6.253 11.675-11.675 0-.178 0-.355-.012-.53A8.348 8.348 0 0022 5.92a8.19 8.19 0 01-2.357.646 4.118 4.118 0 001.804-2.27 8.224 8.224 0 01-2.605.996 4.107 4.107 0 00-6.993 3.743 11.65 11.65 0 01-8.457-4.287 4.106 4.106 0 001.27 5.477A4.072 4.072 0 012.8 9.713v.052a4.105 4.105 0 003.292 4.022 4.095 4.095 0 01-1.853.07 4.108 4.108 0 003.834 2.85A8.233 8.233 0 012 18.407a11.616 11.616 0 006.29 1.84"
+              />
+            </svg>
+          </a>
+
+          <a href="#" class="text-gray-400 hover:text-gray-500">
+            <span class="sr-only">GitHub</span>
+            <svg
+              class="w-6 h-6"
+              fill="currentColor"
+              viewBox="0 0 24 24"
+              aria-hidden="true"
+            >
+              <path
+                fill-rule="evenodd"
+                d="M12 2C6.477 2 2 6.484 2 12.017c0 4.425 2.865 8.18 6.839 9.504.5.092.682-.217.682-.483 0-.237-.008-.868-.013-1.703-2.782.605-3.369-1.343-3.369-1.343-.454-1.158-1.11-1.466-1.11-1.466-.908-.62.069-.608.069-.608 1.003.07 1.531 1.032 1.531 1.032.892 1.53 2.341 1.088 2.91.832.092-.647.35-1.088.636-1.338-2.22-.253-4.555-1.113-4.555-4.951 0-1.093.39-1.988 1.029-2.688-.103-.253-.446-1.272.098-2.65 0 0 .84-.27 2.75 1.026A9.564 9.564 0 0112 6.844c.85.004 1.705.115 2.504.337 1.909-1.296 2.747-1.027 2.747-1.027.546 1.379.202 2.398.1 2.651.64.7 1.028 1.595 1.028 2.688 0 3.848-2.339 4.695-4.566 4.943.359.309.678.92.678 1.855 0 1.338-.012 2.419-.012 2.747 0 .268.18.58.688.482A10.019 10.019 0 0022 12.017C22 6.484 17.522 2 12 2z"
+                clip-rule="evenodd"
+              />
+            </svg>
+          </a>
+        </span>
+      </div>
+    </footer>
+  </body>
+</html>
