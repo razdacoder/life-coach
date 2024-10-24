@@ -10,3 +10,11 @@
     @apply ml-12 relative uppercase text-primary font-medium before:absolute before:w-10 before:h-[1px] before:bg-primary before:flex before:items-center before:justify-center before:top-1/2 before:-left-12;
   }
 }
+
+input[type="range"]::-webkit-slider-thumb {
+  pointer-events: all;
+  width: 24px;
+  height: 24px;
+  -webkit-appearance: none;
+  /* @apply w-6 h-6 appearance-none pointer-events-auto; */
+}
